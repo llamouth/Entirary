@@ -1,8 +1,8 @@
 const express = require("express");
 const googlePlaces = express.Router();
-const { getNearbyPlaces, getPlaceDetails } = require("../queries/googlePlaces.queries");
+const { getNearbyPlaces, getPlaceDetails, getGeoData } = require("../queries/googlePlaces.queries");
 
-googlePlaces.post('/nearBy', async (req, res) => {
+googlePlaces.get('/nearBy', async (req, res) => {
     try {
         const nearbyPlaces = await getNearbyPlaces(req.body)
         res.status(200).json(nearbyPlaces);
@@ -19,5 +19,14 @@ googlePlaces.get('/details', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+googlePlaces.get('/geo-data', async (req, res) => {
+    try {
+        const geoData = await getGeoData(req.body)
+        res.status(200).json(geoData);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+})
 
 module.exports = googlePlaces;
