@@ -1,19 +1,22 @@
-import './index.css'
+import "./index.css";
 import React from "react";
-import { DateProvider } from "./Context/DateContext";
-import Landing from "./Components/Landing";
+import { Routes, Route } from "react-router";
+import AppProviders from "./Context/AppProviders";
+import Landing from "./Pages/Landing";
+import CountryDisplay from "./Pages/CountryDisplay";
 // Import other components as needed
 
 function App() {
   return (
-    <DateProvider>
+    <AppProviders>
       <div className="App">
-        <Landing />
-        {/* Other components */}
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/destinations" element={<CountryDisplay />} />
+        </Routes>
       </div>
-    </DateProvider>
+    </AppProviders>
   );
 }
 
 export default App;
-

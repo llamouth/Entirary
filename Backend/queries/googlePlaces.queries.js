@@ -31,10 +31,10 @@ const getNearbyPlaces = async (travelerLocation) => {
     }
 
     if(countryArr.length > 1 ){
-        newquery = countryArr.reduce((acc, curr) =>{
+        const countryQuery = countryArr.reduce((acc, curr) =>{
             return `${acc}%20${curr}`
         })
-        newquery = `${city},%20${newquery}`
+        newquery = `${city},%20${countryQuery}`
     }
      
     try {
