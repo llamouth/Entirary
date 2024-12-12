@@ -6,11 +6,6 @@ import Button from "react-bootstrap/Button";
 const Landing = () => {
   const [display, setDisplay] = useState("");
   const [dropDown, setDropDown] = useState(false);
-  const [vistorsSelections, setVistorsSelections] = useState({
-    Country: "",
-    Date: "",
-    Weather: "",
-  });
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -32,9 +27,9 @@ const Landing = () => {
         {dropDown && (
           <div className="w-full max-w-md">
             {display === "Country" ? (
-              <CountryDropDown vistorsSelections={vistorsSelections} setVistorsSelections={setVistorsSelections}/>
+              <CountryDropDown />
             ) : (
-              <DateDropDown vistorsSelections={vistorsSelections} setVistorsSelections={setVistorsSelections}/>
+              <DateDropDown />
             )}
           </div>
         )}

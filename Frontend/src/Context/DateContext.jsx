@@ -14,11 +14,3 @@ export const DateProvider = ({ children }) => {
     </DateContext.Provider>
   );
 };
-
-export const useDate = () => {
-  const context = useContext(DateContext);
-  if (!context) {
-    throw new Error("useDate must be used within a DateProvider");
-  }
-  return context;
-};

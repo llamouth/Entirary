@@ -3,7 +3,7 @@ import React from "react";
 import { Routes, Route } from "react-router";
 import AppProviders from "./Context/AppProviders";
 import Landing from "./Pages/Landing";
-import CountryDisplay from "./Pages/CountryDisplay";
+import Recommendations from "./Pages/Recommendations";
 // Import other components as needed
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/destinations" element={<CountryDisplay />} />
+          <Route path="/recommendations" element={<Recommendations />} />
         </Routes>
       </div>
     </AppProviders>

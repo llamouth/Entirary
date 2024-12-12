@@ -4,7 +4,7 @@ import "../../Styles/DateDropDown.css";
 import { DateContext } from "../../Context/DateContext";
 import { useNavigate } from "react-router";
 
-const DateDropDown = ({ vistorsSelections, setVistorsSelections }) => {
+const DateDropDown = () => {
   const navigate = useNavigate();
 
   const { selectedDate, setSelectedDate } = useContext(DateContext);
@@ -13,14 +13,10 @@ const DateDropDown = ({ vistorsSelections, setVistorsSelections }) => {
     const startDate = newDate[0].toLocaleDateString();
     const endDate = newDate[1].toLocaleDateString();
     setSelectedDate([startDate, endDate]);
-    setVistorsSelections({
-      ...vistorsSelections,
-      Date: [startDate, endDate],
-    });
   };
 
   const handleSubmit = () => {
-    navigate('/destinations')
+    navigate('/recommendations')
   };
 
   return (
@@ -32,7 +28,7 @@ const DateDropDown = ({ vistorsSelections, setVistorsSelections }) => {
         value={selectedDate}
       />
       <p>
-        Selected start date:{" "}
+        Selected start date:
         {selectedDate[0] ? selectedDate[0] : "Not selected"}
       </p>
       <p>

@@ -2,7 +2,7 @@ const express = require("express");
 const googlePlaces = express.Router();
 const { getNearbyPlaces, getPlaceDetails, getGeoData } = require("../queries/googlePlaces.queries");
 
-googlePlaces.get('/nearBy', async (req, res) => {
+googlePlaces.post('/nearBy', async (req, res) => {
     try {
         const nearbyPlaces = await getNearbyPlaces(req.body)
         res.status(200).json(nearbyPlaces);
@@ -11,7 +11,7 @@ googlePlaces.get('/nearBy', async (req, res) => {
     }
 });
 
-googlePlaces.get('/details', async (req, res) => {
+googlePlaces.post('/details', async (req, res) => {
     try {
         const placeDetails = await getPlaceDetails(req.body)
         res.status(200).json(placeDetails);
@@ -20,7 +20,7 @@ googlePlaces.get('/details', async (req, res) => {
     }
 });
 
-googlePlaces.get('/geo-data', async (req, res) => {
+googlePlaces.post('/geo-data', async (req, res) => {
     try {
         const geoData = await getGeoData(req.body)
         res.status(200).json(geoData);
